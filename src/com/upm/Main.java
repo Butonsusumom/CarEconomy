@@ -21,41 +21,41 @@ public class Main {
             return;
         }
 
-        if(!validationHelper.validateFile(args)) {
+        if (!validationHelper.validateFile(args)) {
             System.out.println(ERROR_MESSAGE_INVALID_FILE);
             return;
         }
 
-        //work with an arguments
-        if(args.length<2) {
+        // work with an arguments
+        if (args.length < 2) {
             System.out.println(ERROR_MESSAGE_INVALID_ARGUMENTS);
             return;
         }
 
-        int i=1;
-            switch(args[1]) {
-                case RECORD_OPTION:
-                    if (!validationHelper.validateArgumants(args, i + 1, 3)) {
-                        System.out.println(ERROR_MESSAGE_INVALID_NUMBER_OF_ARGUMENTS + "3 (three)");
-                        return;
-                    }
+        int i = 1;
+        switch (args[1]) {
+            case RECORD_OPTION:
+                if (!validationHelper.validateArgumants(args, i + 1, 3)) {
+                    System.out.println(ERROR_MESSAGE_INVALID_NUMBER_OF_ARGUMENTS + "3 (three)");
+                    return;
+                }
 
-                    RecordOption record = new RecordOption(i+1, i+2, i+3);
-                    record.recordFilling(args[0]);
+                RecordOption record = new RecordOption(i + 1, i + 2, i + 3);
+                record.recordFilling(args[0]);
+                break;
+            case CONSULT_OPTION:
+                if (!validationHelper.validateArgumants(args, i + 1, 1)) {
+                    System.out.println(ERROR_MESSAGE_INVALID_NUMBER_OF_ARGUMENTS + "1 (one)");
+                    return;
+                }
 
-                    i += 3;
-                    return;
-                case CONSULT_OPTION:
-                    if (!validationHelper.validateArgumants(args, i + 1, 1)) {
-                        System.out.println(ERROR_MESSAGE_INVALID_NUMBER_OF_ARGUMENTS + "1 (one)");
-                        return;
-                    }
-                    i += 1;
-                    return;
-                case TRIP_OPTION:
-                    // code block
-                    return;
-            }
+                ConsultOption consult = new ConsultOption();
+                consult.printMetrics(args[0]);
+                break;
+            case TRIP_OPTION:
+                // code block
+                break;
+        }
 
     }
 }

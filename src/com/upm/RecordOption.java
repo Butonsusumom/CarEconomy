@@ -20,6 +20,7 @@ public class RecordOption {
         this.total_price = total_price;
     }
 
+    // Add the filling to the file
     public void recordFilling(String fileRoute) {
         boolean incorrectAnswer = true;
         String answer = "";
@@ -51,6 +52,7 @@ public class RecordOption {
         }
     }
 
+    // Check if there might be a missing filling
     private boolean canRecord(String fileRoute) throws IOException {
         double averageConsumption = 0.0;
         double historicalConsumption = 0.0;
