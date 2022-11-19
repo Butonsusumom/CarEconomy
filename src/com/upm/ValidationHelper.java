@@ -8,6 +8,16 @@ public class ValidationHelper {
 
     private static final String FILE_REGEX = "^[a-zA-Z0-9._ -]+\\.(csv)$";
 
+    // check option
+    public boolean checkArguments(String[] args, String o) {
+        for(int i=0;i< args.length;i++){
+            if (args[i]==o){
+                return true;
+            }
+        }
+        return false;
+    }
+
     // checks that 1 argument is a file. If not exists - create
     public boolean validateFile(String[] args) {
         if(args.length>0){

@@ -16,6 +16,11 @@ public class Main {
 
     public static void main(String[] args) {
 
+        if (validationHelper.checkArguments(args, HELP_OPTION)) {
+            System.out.println(HELP_MESSAGE);
+            return;
+        }
+
         if(!validationHelper.validateFile(args)) {
             System.out.println(ERROR_MESSAGE_INVALID_FILE);
             return;
@@ -28,30 +33,25 @@ public class Main {
         }
 
         int i=1;
-        while(i<args.length) {
             switch(args[1]) {
-                case HELP_OPTION:
-                    System.out.println(HELP_MESSAGE);
-                    return;
                 case RECORD_OPTION:
-                    if(!validationHelper.validateArgumants(args,i+1,3)) {
+                    if (!validationHelper.validateArgumants(args, i + 1, 3)) {
                         System.out.println(ERROR_MESSAGE_INVALID_NUMBER_OF_ARGUMENTS + "3.");
                         return;
                     }
-                    i+=3;
-                    break;
+                    i += 3;
+                    return;
                 case CONSULT_OPTION:
-                    if(!validationHelper.validateArgumants(args,i+1,1)) {
+                    if (!validationHelper.validateArgumants(args, i + 1, 1)) {
                         System.out.println(ERROR_MESSAGE_INVALID_NUMBER_OF_ARGUMENTS + "1.");
+                        return;
                     }
-                    i+=1;
-                    break;
+                    i += 1;
+                    return;
                 case TRIP_OPTION:
                     // code block
-                    break;
+                    return;
             }
-            i++;
-        }
 
     }
 }
