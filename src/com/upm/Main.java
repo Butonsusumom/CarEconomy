@@ -3,8 +3,8 @@ package com.upm;
 public class Main {
 
     private static final String HELP_OPTION = "-h";
-    private static final String RECORD_OPTION = "-r";
-    private static final String CONSULT_OPTION = "-c";
+    public static final String RECORD_OPTION = "-r";
+    public static final String CONSULT_OPTION = "-c";
     private static final String TRIP_OPTION = "-t";
 
     private static final String HELP_MESSAGE = "Usage: careconomy <filename> [-h] [-r odometer volume total_price | -c | -t distance]";
@@ -36,14 +36,18 @@ public class Main {
             switch(args[1]) {
                 case RECORD_OPTION:
                     if (!validationHelper.validateArgumants(args, i + 1, 3)) {
-                        System.out.println(ERROR_MESSAGE_INVALID_NUMBER_OF_ARGUMENTS + "3.");
+                        System.out.println(ERROR_MESSAGE_INVALID_NUMBER_OF_ARGUMENTS + "3 (three)");
                         return;
                     }
+
+                    RecordOption record = new RecordOption(i+1, i+2, i+3);
+                    record.recordFilling(args[0]);
+
                     i += 3;
                     return;
                 case CONSULT_OPTION:
                     if (!validationHelper.validateArgumants(args, i + 1, 1)) {
-                        System.out.println(ERROR_MESSAGE_INVALID_NUMBER_OF_ARGUMENTS + "1.");
+                        System.out.println(ERROR_MESSAGE_INVALID_NUMBER_OF_ARGUMENTS + "1 (one)");
                         return;
                     }
                     i += 1;
