@@ -44,16 +44,16 @@ public class Main {
                 record.recordFilling(args[0]);
                 break;
             case CONSULT_OPTION:
-                if (!validationHelper.validateArgumants(args, i + 1, 1)) {
-                    System.out.println(ERROR_MESSAGE_INVALID_NUMBER_OF_ARGUMENTS + "1 (one)");
-                    return;
-                }
-
                 ConsultOption consult = new ConsultOption();
                 consult.printMetrics(args[0]);
                 break;
             case TRIP_OPTION:
-                // code block
+                if (!validationHelper.validateArgumants(args, i + 1, 1)) {
+                    System.out.println(ERROR_MESSAGE_INVALID_NUMBER_OF_ARGUMENTS + "1 (one)");
+                    return;
+                }
+                TripOption trip = new TripOption(Integer.parseInt(args[i+1]));
+                trip.printFuelAndCost(args[0]);
                 break;
         }
 

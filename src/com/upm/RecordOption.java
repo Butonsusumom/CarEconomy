@@ -1,10 +1,6 @@
 package com.upm;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.Scanner;
 
 public class RecordOption {
@@ -41,11 +37,14 @@ public class RecordOption {
             }
 
             FileWriter fw = new FileWriter(fileRoute, true);
+            BufferedWriter bw = new BufferedWriter(fw);
             if (answer.equals("yes")) {
-                fw.write("0 0 0");
+                bw.write("0 0 0");
+                bw.newLine();
             }
-            fw.write(odometer + " " + volume + " " + total_price);
-            fw.close();
+            bw.write(odometer + " " + volume + " " + total_price);
+            bw.newLine();
+            bw.close();
         } catch (IOException e) {
             System.out.println(e.getMessage());
             System.exit(-1);
@@ -75,6 +74,10 @@ public class RecordOption {
             previousOdometer = Double.parseDouble(fillingData[0]);
         }
         br.close();
+
+        if(numberLines == 1){
+            return true;
+        }
 
         historicalConsumptionAverage = historicalConsumption / numberLines;
         averageConsumption = (odometer - Double.parseDouble(fillingData[0])) / volume;

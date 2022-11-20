@@ -89,7 +89,7 @@ public class ConsultOption {
                     / allVolumes.get(i);
             prices += pricePerLiter / consumption;
         }
-        double average = prices / allOdometers.size() - 1;
+        double average = prices / (allOdometers.size()-1);
 
         System.out.println("Price per kilometer traveled since first filling: " + average + " €/km");
     }

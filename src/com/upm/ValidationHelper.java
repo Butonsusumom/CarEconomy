@@ -70,6 +70,7 @@ public class ValidationHelper {
         }
         try {
             double d = Double.parseDouble(strNum);
+            if (d<=0) return false;
         } catch (NumberFormatException nfe) {
             return false;
         }
