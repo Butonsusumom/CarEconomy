@@ -21,21 +21,20 @@ public class Main {
             return;
         }
 
-        if (!validationHelper.validateFile(args)) {
-            System.out.println(ERROR_MESSAGE_INVALID_FILE);
+        if (args.length < 2) {
+            System.out.println(ERROR_MESSAGE_INVALID_ARGUMENTS);
             return;
         }
 
-        // work with an arguments
-        if (args.length < 2) {
-            System.out.println(ERROR_MESSAGE_INVALID_ARGUMENTS);
+        if (!validationHelper.validateFile(args)) {
+            System.out.println(ERROR_MESSAGE_INVALID_FILE);
             return;
         }
 
         int i = 1;
         switch (args[1]) {
             case RECORD_OPTION:
-                if (!validationHelper.validateArgumants(args, i + 1, 3)) {
+                if (!validationHelper.validateArguments(args, i+1, 3)) {
                     System.out.println(ERROR_MESSAGE_INVALID_NUMBER_OF_ARGUMENTS + "3 (three)");
                     return;
                 }
@@ -48,7 +47,7 @@ public class Main {
                 consult.printMetrics(args[0]);
                 break;
             case TRIP_OPTION:
-                if (!validationHelper.validateArgumants(args, i + 1, 1)) {
+                if (!validationHelper.validateArguments(args, i+1, 1)) {
                     System.out.println(ERROR_MESSAGE_INVALID_NUMBER_OF_ARGUMENTS + "1 (one)");
                     return;
                 }

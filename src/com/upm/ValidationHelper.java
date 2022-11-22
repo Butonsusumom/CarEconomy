@@ -42,8 +42,7 @@ public class ValidationHelper {
                             break;
                         case Main.CONSULT_OPTION:
                             System.out.println(ERROR_MESSAGE_NO_FILE_CONSULT);
-                            System.exit(0);
-                            break;
+                           return false;
                         default:
                             return false;
                     }
@@ -55,16 +54,15 @@ public class ValidationHelper {
     }
 
     // checks that next n arguments from i are numbers
-    public boolean validateArgumants(String[] args, int i, int x) {
+    public boolean validateArguments(String[] args, int i, int x) {
         for(int j=i; j<i+x;j++){
-           if(j<args.length && !isNumeric(args[j]))
+           if(j>=args.length || !isNumeric(args[j]))
                return false;
         }
         return true;
     }
 
-
-   private boolean isNumeric(String strNum) {
+   public boolean isNumeric(String strNum) {
         if (strNum == null) {
             return false;
         }

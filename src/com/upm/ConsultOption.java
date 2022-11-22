@@ -48,7 +48,8 @@ public class ConsultOption {
         int numberEntries = allOdometers.size();
         double consumption = (allOdometers.get(numberEntries - 1) - allOdometers.get(numberEntries - 2))
                 / allVolumes.get(numberEntries - 1);
-        System.out.println("Average consumption since the last fueling: " + consumption + " km/l");
+        String consumptionString =  String.format("%.2g", consumption);
+        System.out.println("Average consumption since the last fueling: " + consumptionString + " km/l");
     }
 
     // Print average consumption (km/l) since first record
@@ -59,8 +60,9 @@ public class ConsultOption {
             consumptions += (allOdometers.get(i) - allOdometers.get(i - 1)) / allVolumes.get(i);
         }
         double average = consumptions / allOdometers.size() - 1;
+        String averageString =  String.format("%.2g", average);
 
-        System.out.println("Average consumption since the first record: " + average + " km/l");
+        System.out.println("Average consumption since the first record: " + averageString + " km/l");
     }
 
     // Print price per kilometer since last filling
@@ -72,8 +74,9 @@ public class ConsultOption {
         double consumption = (allOdometers.get(numberEntries - 1) - allOdometers.get(numberEntries - 2))
                 / allVolumes.get(numberEntries - 1);
         double pricePerKilometer = pricePerLiter / consumption;
+        String priceString =  String.format("%.2g", pricePerKilometer);
 
-        System.out.println("Price per kilometer traveled since the last filling: " + pricePerKilometer + " €/km");
+        System.out.println("Price per kilometer traveled since the last filling: " + priceString + " €/km");
     }
 
     // Print price per kilometer since first record
@@ -90,8 +93,9 @@ public class ConsultOption {
             prices += pricePerLiter / consumption;
         }
         double average = prices / (allOdometers.size()-1);
+        String averageString =  String.format("%.2g", average);
 
-        System.out.println("Price per kilometer traveled since first filling: " + average + " €/km");
+        System.out.println("Price per kilometer traveled since first filling: " + averageString + " €/km");
     }
 
     // Print average of prices
@@ -102,8 +106,9 @@ public class ConsultOption {
             prices += allPrices.get(i);
         }
         double average = prices / allPrices.size() - 1;
+        String averageString =  String.format("%.2g", average);
 
-        System.out.println("Average price paid for fuel historically: " + average + " €");
+        System.out.println("Average price paid for fuel historically: " + averageString + " €");
     }
 
     // Print current possible range (km). Calculated as: consumption average * last
@@ -116,7 +121,8 @@ public class ConsultOption {
         }
         double average = consumptions / allOdometers.size() - 1;
         double range = average * allVolumes.get(allVolumes.size() - 1);
+        String rangeString =  String.format("%.2g", range);
 
-        System.out.println("Current possible range: " + range + " km");
+        System.out.println("Current possible range: " + rangeString + " km");
     }
 }
