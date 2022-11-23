@@ -39,7 +39,8 @@ public class Main {
                     return;
                 }
 
-                RecordOption record = new RecordOption(i + 1, i + 2, i + 3);
+                RecordOption record = new RecordOption(Double.parseDouble(args[i + 1]),
+                        Double.parseDouble(args[i + 2]), Double.parseDouble(args[i+3]));
                 record.recordFilling(args[0]);
                 break;
             case CONSULT_OPTION:

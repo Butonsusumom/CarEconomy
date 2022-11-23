@@ -31,7 +31,7 @@ public class TripOptionTest {
     }
 
     @Test
-    public void shouldPrintInformation_whenValidateFile_givenFileWithAData() {
+    public void shouldPrintInformation_whenPrintFuelAndCost_givenFileWithAData() {
         //given
         TripOption given = new TripOption(100);
         ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();

@@ -185,13 +185,12 @@ public class ValidationHelperTest {
         //when
         System.setOut(new PrintStream(outputStreamCaptor));
         boolean actual = classUnderTest.validateFile(givenArguments);
+        System.setOut(standardOut);
 
         //then
         assertEquals(ERROR_MESSAGE_NO_FILE_CONSULT, outputStreamCaptor.toString()
                 .trim());
         assertFalse(actual);
-
-        System.setOut(standardOut);
     }
 
     @Test

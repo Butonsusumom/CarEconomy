@@ -26,7 +26,7 @@ public class ConsultOptionTest {
     }
 
     @Test
-    public void shouldPrintMetrics_when_givenFiledFile(){
+    public void shouldPrintMetrics_whenPrintMetrics_givenFiledFile(){
         //given
         ConsultOption given = new ConsultOption();
         ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
